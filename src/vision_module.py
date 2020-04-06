@@ -36,9 +36,9 @@ def select_region(image):
  
     rows, cols = image.shape[:2]
     bottom_left  = [cols*0.05, rows*0.95]
-    top_left     = [cols*0.2, rows*0.6]
+    top_left     = [cols*0.2, rows*0.4]
     bottom_right = [cols*0.95, rows*0.95]
-    top_right    = [cols*0.8, rows*0.6] 
+    top_right    = [cols*0.8, rows*0.4] 
     
     vertices = np.array([[bottom_left, top_left, top_right, bottom_right]], dtype=np.int32)
     return filter_region(image, vertices)
@@ -168,7 +168,7 @@ def draw_lines(image, lines, color=[255, 0, 0], thickness=1, make_copy=True):
 def main():
 
 
-	image = cv2.imread('./turtlebot_folder/imgs/img3.png')
+	image = cv2.imread('./assets/imgs/img1.png')
 
 	#image = convert_gray_scale(image)
 	#image = select_white_yellow(image)
@@ -187,7 +187,7 @@ def main():
 	final_image = draw_lane_lines(image,line_lane)
 
 
-	cv2.imshow('image1',line_image)
+	cv2.imshow('image1',region_image)
 
 	cv2.waitKey(0)
 
